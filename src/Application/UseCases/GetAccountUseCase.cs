@@ -39,7 +39,7 @@ namespace Application.UseCases
         /// </summary>
         /// <param name="input">Input Message.</param>
         /// <returns>Task.</returns>
-        public async Task Execute(GetAccountInput input)
+        public async Task Execute(IGetAccountInput input)
         {
             if (input is null)
             {
@@ -58,14 +58,8 @@ namespace Application.UseCases
                 return;
             }
 
-            this.BuildOutput(account);
-        }
-
-        private void BuildOutput(IAccount account)
-        {
-            var output = new GetAccountOutput(account);
             this._getAccountOutputPort
-                .Standard(output);
+                .Standard(account);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Application.Boundaries.GetAccounts
     ///     </see>
     ///     .
     /// </summary>
-    public interface IGetAccountsUseCase : IUseCase<GetAccountsInput>
+    public interface IGetAccountsUseCase : IUseCase<IGetAccountsInput>
     {
     }
 }

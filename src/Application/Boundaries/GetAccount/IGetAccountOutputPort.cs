@@ -4,11 +4,13 @@
 
 namespace Application.Boundaries.GetAccount
 {
+    using Domain.Accounts;
+
     /// <summary>
     ///     Output Port.
     /// </summary>
     public interface IGetAccountOutputPort
-        : IOutputPortStandard<GetAccountOutput>, IOutputPortNotFound, IOutputPortError
+        : IOutputPortStandard<IAccount>, IOutputPortNotFound, IOutputPortError
     {
     }
 }

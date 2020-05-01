@@ -1,6 +1,8 @@
 namespace WebApi.UseCases.V1.GetAccounts
 {
+    using System.Collections.Generic;
     using Application.Boundaries.GetAccounts;
+    using Domain.Accounts;
     using Microsoft.AspNetCore.Mvc;
 
     /// <summary>
@@ -15,9 +17,9 @@ namespace WebApi.UseCases.V1.GetAccounts
         /// <summary>
         /// </summary>
         /// <param name="getAccountsOutput"></param>
-        public void Standard(GetAccountsOutput getAccountsOutput)
+        public void Standard(IEnumerable<IAccount> accounts)
         {
-            var getAccountDetailsResponse = new GetAccountsResponse(getAccountsOutput.Accounts);
+            var getAccountDetailsResponse = new GetAccountsResponse(accounts);
             this.ViewModel = new OkObjectResult(getAccountDetailsResponse);
         }
 

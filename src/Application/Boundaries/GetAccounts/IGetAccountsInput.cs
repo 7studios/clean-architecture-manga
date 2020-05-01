@@ -7,7 +7,7 @@ namespace Application.Boundaries.GetAccounts
     /// <summary>
     ///     Get Account Details Input Message.
     /// </summary>
-    public sealed class GetAccountsInput
+    public interface IGetAccountsInput
     {
     }
 }

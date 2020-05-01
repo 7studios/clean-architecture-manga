@@ -10,6 +10,8 @@ namespace WebApi.Modules.Common
     using Application.Boundaries.Withdraw;
     using FluentMediator;
     using Microsoft.Extensions.DependencyInjection;
+    using UseCases.V1.GetAccount;
+    using UseCases.V1.GetAccounts;
 
     public static class FluentMediatorExtensions
     {
@@ -24,11 +26,11 @@ namespace WebApi.Modules.Common
                     builder.On<DepositInput>().PipelineAsync()
                         .Call<IDepositUseCase>((handler, request) => handler.Execute(request));
 
-                    builder.On<GetAccountInput>().PipelineAsync()
+                    builder.On<GetAccountRequest>().PipelineAsync()
                         .Call<IGetAccountUseCase>((handler, request) =>
                             handler.Execute(request));
 
-                    builder.On<GetAccountsInput>().PipelineAsync()
+                    builder.On<GetAccountsRequest>().PipelineAsync()
                         .Call<IGetAccountsUseCase>((handler, request) =>
                             handler.Execute(request));
 

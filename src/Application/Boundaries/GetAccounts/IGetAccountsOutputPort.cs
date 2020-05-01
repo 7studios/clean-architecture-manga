@@ -4,11 +4,14 @@
 
 namespace Application.Boundaries.GetAccounts
 {
+    using System.Collections.Generic;
+    using Domain.Accounts;
+
     /// <summary>
     ///     Output Port.
     /// </summary>
     public interface IGetAccountsOutputPort
-        : IOutputPortStandard<GetAccountsOutput>, IOutputPortError
+        : IOutputPortStandard<IEnumerable<IAccount>>, IOutputPortError
     {
     }
 }

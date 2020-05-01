@@ -34,8 +34,8 @@ namespace WebApi.UseCases.V1.GetAccounts
             [FromServices] IMediator mediator,
             [FromServices] GetAccountsPresenter presenter)
         {
-            var input = new GetAccountsInput();
-            await mediator.PublishAsync(input)
+            var request = new GetAccountsRequest();
+            await mediator.PublishAsync(request)
                 .ConfigureAwait(false);
             return presenter.ViewModel;
         }

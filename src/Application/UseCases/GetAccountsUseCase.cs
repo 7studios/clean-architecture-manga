@@ -6,6 +6,7 @@ namespace Application.UseCases
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using Boundaries;
     using Boundaries.GetAccounts;
     using Domain.Accounts;
     using Domain.Security;
@@ -46,7 +47,7 @@ namespace Application.UseCases
         /// </summary>
         /// <param name="input">Input Message.</param>
         /// <returns>Task.</returns>
-        public async Task Execute(GetAccountsInput input)
+        public async Task Execute(IGetAccountsInput input)
         {
             if (input is null)
             {
@@ -67,9 +68,8 @@ namespace Application.UseCases
                     .ConfigureAwait(false));
             }
 
-            var output = new GetAccountsOutput(accounts);
             this._getAccountsOutputPort
-                .Standard(output);
+                .Standard(accounts);
         }
     }
 }
