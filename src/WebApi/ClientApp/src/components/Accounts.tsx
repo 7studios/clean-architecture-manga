@@ -9,7 +9,6 @@ type AccountsProps =
     AccountsStore.AccountsState
   & typeof AccountsStore.actionCreators;
 
-
 class Accounts extends React.PureComponent<AccountsProps> {
   public componentDidMount() {
     this.ensureDataFetched();
@@ -31,7 +30,7 @@ class Accounts extends React.PureComponent<AccountsProps> {
               <tbody>
               {this.props.accounts.accounts.map((account: AccountsStore.Account) =>
                   <tr key={account.accountId}>
-                      <td><NavLink tag={Link} className="text-dark" to={`/transactions/${account.accountId}`}>Transactions</NavLink> </td>
+                      <td><NavLink tag={Link} className="text-dark" to={`/accounts/${account.accountId}`}>Details</NavLink> </td>
                       <td>{account.currentBalance}</td>
                   </tr>
               )}
